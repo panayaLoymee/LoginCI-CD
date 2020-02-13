@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM gliderlabs/alpine:3.3
 
 RUN apk-install bash py-pip firefox xvfb dbus chromium chromium-chromedriver
 RUN pip install --upgrade pip
