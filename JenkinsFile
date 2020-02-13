@@ -11,10 +11,14 @@ pipeline {
             steps {
                 container('alpine'){
                     sh '''
-                        apk-install bash py-pip firefox xvfb dbus chromium chromium-chromedriver
+                        apk-install bash py-pip dbus chromium chromium-chromedriver
                         pip install --upgrade pip
                         pip install robotframework
                         pip install robotframework-selenium2library
+
+                        GEOMETRY="1280x720x16"
+                        Xvfb :99 -screen 0 $GEOMETRY &
+                        export DISPLAY=:99
 
                         robot LoginModdy.robot
                     '''
