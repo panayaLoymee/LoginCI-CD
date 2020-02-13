@@ -1,16 +1,13 @@
 pipeline {
     agent {
         kubernetes {
-            label 'Login_CI_CDza'
+            label 'Login_CI_CD'
             defaultContainer 'jnlp'
             yamlFile 'jenkins-manifest/pod.yaml'
         }
     }
     stages {
         stage('Test'){
-            when {
-                branch 'master'
-            }
             steps {
                 container('dind'){
                     sh '''
