@@ -9,9 +9,14 @@ pipeline {
     stages {
         stage('Test'){
             steps {
-                container('dind'){
+                container('alpine'){
                     sh '''
-                    docker build --tag testing:$GIT_COMMIT --tag testing:latest .
+                        apk-install bash py-pip firefox xvfb dbus chromium chromium-chromedriver
+                        pip install --upgrade pip
+                        pip install robotframework
+                        pip install robotframework-selenium2library
+
+                        robot LoginModdy.robot
                     '''
                 }
             }

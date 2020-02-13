@@ -5,8 +5,8 @@ metadata:
     app: citibank-service
 spec:
   containers:
-    - name: dind
-      image: docker:18.05-dind
+    - name: alpine
+      image: gliderlabs/alpine:3.3
       tty: true
       securityContext:
         privileged: true
