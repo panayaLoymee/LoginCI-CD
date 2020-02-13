@@ -1,7 +1,7 @@
 pipeline {
     agent {
         kubernetes {
-            label 'Login_CI_CD'
+            label 'Login_CI_CDza'
             defaultContainer 'jnlp'
             yamlFile 'jenkins-manifest/pod.yaml'
         }
